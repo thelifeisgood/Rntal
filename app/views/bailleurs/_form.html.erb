@@ -1,0 +1,26 @@
+<%= simple_form_for(@bailleur) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :civilite %>
+    <%= f.input :nom %>
+    <%= f.input :prenom %>
+    <%= f.input :nomMme %>
+    <%= f.input :prenomMme %>
+    <%= f.input :nomDeux %>
+    <%= f.input :prenomDeux %>
+    <%= f.input :nomSociete %>
+    <%= f.input :nRcs %>
+    <%= f.input :tva %>
+    <%= f.input :nomIndivision %>
+    <%= f.input :adresse %>
+    <%= f.input :codePostal %>
+    <%= f.input :ville %>
+    <%= f.input :representant %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

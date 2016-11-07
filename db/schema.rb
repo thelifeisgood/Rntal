@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107141405) do
+ActiveRecord::Schema.define(version: 20161107154610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bailleurs", force: :cascade do |t|
+    t.string   "civilite"
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "nomMme"
+    t.string   "prenomMme"
+    t.string   "nomDeux"
+    t.string   "prenomDeux"
+    t.string   "nomSociete"
+    t.integer  "nRcs"
+    t.boolean  "tva"
+    t.string   "nomIndivision"
+    t.string   "adresse"
+    t.integer  "codePostal"
+    t.string   "ville"
+    t.boolean  "representant"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_bailleurs_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +54,5 @@ ActiveRecord::Schema.define(version: 20161107141405) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bailleurs", "users"
 end
