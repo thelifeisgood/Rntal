@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typedebail</th>
+      <th>Dureedubail</th>
+      <th>Datedebutbail</th>
+      <th>Datefinbail</th>
+      <th>Destinationdeslocaux</th>
+      <th>Loyerhorscharges</th>
+      <th>Provisioncharges</th>
+      <th>Modalitereglementchargesrecuperables</th>
+      <th>Revisionautomatiqueduloyer</th>
+      <th>Jourexigibiliteloyer</th>
+      <th>Modereglement</th>
+      <th>Enregistrementautomatiqueloyer</th>
+      <th>Assurancecolocation</th>
+      <th>Locataire</th>
+      <th>Bien</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bails.each do |bail| %>
+      <tr>
+        <td><%= bail.typeDeBail %></td>
+        <td><%= bail.dureeDuBail %></td>
+        <td><%= bail.dateDebutBail %></td>
+        <td><%= bail.dateFinBail %></td>
+        <td><%= bail.destinationDesLocaux %></td>
+        <td><%= bail.loyerHorsCharges %></td>
+        <td><%= bail.provisionCharges %></td>
+        <td><%= bail.modaliteReglementChargesRecuperables %></td>
+        <td><%= bail.revisionAutomatiqueDuLoyer %></td>
+        <td><%= bail.jourExigibiliteLoyer %></td>
+        <td><%= bail.modeReglement %></td>
+        <td><%= bail.enregistrementAutomatiqueLoyer %></td>
+        <td><%= bail.assuranceColocation %></td>
+        <td><%= bail.locataire %></td>
+        <td><%= bail.bien %></td>
+        <td><%= link_to 'Show', bail %></td>
+        <td><%= link_to 'Edit', edit_bail_path(bail) %></td>
+        <td><%= link_to 'Destroy', bail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bail', new_bail_path %>

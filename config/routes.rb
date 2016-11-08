@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bails
   resources :representant_locataires
   resources :garant_locataires
   resources :locataires

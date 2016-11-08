@@ -1,0 +1,2 @@
+module BailsHelper
+end
