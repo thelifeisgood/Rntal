@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Representant Locataires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilite</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Adresse</th>
+      <th>Codepostal</th>
+      <th>Ville</th>
+      <th>Locataire</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @representant_locataires.each do |representant_locataire| %>
+      <tr>
+        <td><%= representant_locataire.civilite %></td>
+        <td><%= representant_locataire.nom %></td>
+        <td><%= representant_locataire.prenom %></td>
+        <td><%= representant_locataire.adresse %></td>
+        <td><%= representant_locataire.codePostal %></td>
+        <td><%= representant_locataire.ville %></td>
+        <td><%= representant_locataire.locataire %></td>
+        <td><%= link_to 'Show', representant_locataire %></td>
+        <td><%= link_to 'Edit', edit_representant_locataire_path(representant_locataire) %></td>
+        <td><%= link_to 'Destroy', representant_locataire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Representant Locataire', new_representant_locataire_path %>

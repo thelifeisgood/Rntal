@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Civilite:</strong>
+  <%= @representant_locataire.civilite %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @representant_locataire.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @representant_locataire.prenom %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @representant_locataire.adresse %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @representant_locataire.codePostal %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @representant_locataire.ville %>
+</p>
+
+<p>
+  <strong>Locataire:</strong>
+  <%= @representant_locataire.locataire %>
+</p>
+
+<%= link_to 'Edit', edit_representant_locataire_path(@representant_locataire) %> |
+<%= link_to 'Back', representant_locataires_path %>
