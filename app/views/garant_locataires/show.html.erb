@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Civilite:</strong>
+  <%= @garant_locataire.civilite %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @garant_locataire.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @garant_locataire.prenom %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @garant_locataire.adresse %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @garant_locataire.codePostal %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @garant_locataire.ville %>
+</p>
+
+<p>
+  <strong>Locataire:</strong>
+  <%= @garant_locataire.locataire %>
+</p>
+
+<%= link_to 'Edit', edit_garant_locataire_path(@garant_locataire) %> |
+<%= link_to 'Back', garant_locataires_path %>

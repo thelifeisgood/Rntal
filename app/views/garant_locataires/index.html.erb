@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Garant Locataires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilite</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Adresse</th>
+      <th>Codepostal</th>
+      <th>Ville</th>
+      <th>Locataire</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @garant_locataires.each do |garant_locataire| %>
+      <tr>
+        <td><%= garant_locataire.civilite %></td>
+        <td><%= garant_locataire.nom %></td>
+        <td><%= garant_locataire.prenom %></td>
+        <td><%= garant_locataire.adresse %></td>
+        <td><%= garant_locataire.codePostal %></td>
+        <td><%= garant_locataire.ville %></td>
+        <td><%= garant_locataire.locataire %></td>
+        <td><%= link_to 'Show', garant_locataire %></td>
+        <td><%= link_to 'Edit', edit_garant_locataire_path(garant_locataire) %></td>
+        <td><%= link_to 'Destroy', garant_locataire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garant Locataire', new_garant_locataire_path %>
