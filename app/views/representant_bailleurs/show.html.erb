@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Civilite:</strong>
+  <%= @representant_bailleur.civilite %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @representant_bailleur.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @representant_bailleur.prenom %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @representant_bailleur.adresse %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @representant_bailleur.codePostal %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @representant_bailleur.ville %>
+</p>
+
+<p>
+  <strong>Bailleur:</strong>
+  <%= @representant_bailleur.bailleur %>
+</p>
+
+<%= link_to 'Edit', edit_representant_bailleur_path(@representant_bailleur) %> |
+<%= link_to 'Back', representant_bailleurs_path %>

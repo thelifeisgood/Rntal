@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Representant Bailleurs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilite</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Adresse</th>
+      <th>Codepostal</th>
+      <th>Ville</th>
+      <th>Bailleur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @representant_bailleurs.each do |representant_bailleur| %>
+      <tr>
+        <td><%= representant_bailleur.civilite %></td>
+        <td><%= representant_bailleur.nom %></td>
+        <td><%= representant_bailleur.prenom %></td>
+        <td><%= representant_bailleur.adresse %></td>
+        <td><%= representant_bailleur.codePostal %></td>
+        <td><%= representant_bailleur.ville %></td>
+        <td><%= representant_bailleur.bailleur %></td>
+        <td><%= link_to 'Show', representant_bailleur %></td>
+        <td><%= link_to 'Edit', edit_representant_bailleur_path(representant_bailleur) %></td>
+        <td><%= link_to 'Destroy', representant_bailleur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Representant Bailleur', new_representant_bailleur_path %>
