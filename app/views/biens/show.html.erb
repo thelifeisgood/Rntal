@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typedebien:</strong>
+  <%= @bien.typeDeBien %>
+</p>
+
+<p>
+  <strong>Regimejuridique:</strong>
+  <%= @bien.regimeJuridique %>
+</p>
+
+<p>
+  <strong>Nombredepieces:</strong>
+  <%= @bien.nombreDePieces %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @bien.adresse %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @bien.codePostal %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @bien.ville %>
+</p>
+
+<p>
+  <strong>Surfacehabitable:</strong>
+  <%= @bien.surfaceHabitable %>
+</p>
+
+<p>
+  <strong>Descriptiondubien:</strong>
+  <%= @bien.descriptionDuBien %>
+</p>
+
+<p>
+  <strong>Bailleur:</strong>
+  <%= @bien.bailleur %>
+</p>
+
+<%= link_to 'Edit', edit_bien_path(@bien) %> |
+<%= link_to 'Back', biens_path %>

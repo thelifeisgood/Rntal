@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Biens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typedebien</th>
+      <th>Regimejuridique</th>
+      <th>Nombredepieces</th>
+      <th>Adresse</th>
+      <th>Codepostal</th>
+      <th>Ville</th>
+      <th>Surfacehabitable</th>
+      <th>Descriptiondubien</th>
+      <th>Bailleur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @biens.each do |bien| %>
+      <tr>
+        <td><%= bien.typeDeBien %></td>
+        <td><%= bien.regimeJuridique %></td>
+        <td><%= bien.nombreDePieces %></td>
+        <td><%= bien.adresse %></td>
+        <td><%= bien.codePostal %></td>
+        <td><%= bien.ville %></td>
+        <td><%= bien.surfaceHabitable %></td>
+        <td><%= bien.descriptionDuBien %></td>
+        <td><%= bien.bailleur %></td>
+        <td><%= link_to 'Show', bien %></td>
+        <td><%= link_to 'Edit', edit_bien_path(bien) %></td>
+        <td><%= link_to 'Destroy', bien, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bien', new_bien_path %>

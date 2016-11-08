@@ -1,0 +1,19 @@
+<%= simple_form_for(@bien) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :typeDeBien %>
+    <%= f.input :regimeJuridique %>
+    <%= f.input :nombreDePieces %>
+    <%= f.input :adresse %>
+    <%= f.input :codePostal %>
+    <%= f.input :ville %>
+    <%= f.input :surfaceHabitable %>
+    <%= f.input :descriptionDuBien %>
+    <%= f.association :bailleur %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

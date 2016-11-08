@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107154610) do
+ActiveRecord::Schema.define(version: 20161108155221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20161107154610) do
     t.index ["user_id"], name: "index_bailleurs_on_user_id", using: :btree
   end
 
+  create_table "representant_bailleurs", force: :cascade do |t|
+    t.string   "civilite"
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "adresse"
+    t.integer  "codePostal"
+    t.string   "ville"
+    t.integer  "bailleur_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["bailleur_id"], name: "index_representant_bailleurs_on_bailleur_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -55,4 +68,5 @@ ActiveRecord::Schema.define(version: 20161107154610) do
   end
 
   add_foreign_key "bailleurs", "users"
+  add_foreign_key "representant_bailleurs", "bailleurs"
 end
