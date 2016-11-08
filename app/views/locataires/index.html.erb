@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locataires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilite</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Nomdeux</th>
+      <th>Prenomdeux</th>
+      <th>Nomsociete</th>
+      <th>Nrcs</th>
+      <th>Adressesiege</th>
+      <th>Codepostalsiege</th>
+      <th>Villesiege</th>
+      <th>Representant</th>
+      <th>Bailleur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locataires.each do |locataire| %>
+      <tr>
+        <td><%= locataire.civilite %></td>
+        <td><%= locataire.nom %></td>
+        <td><%= locataire.prenom %></td>
+        <td><%= locataire.nomDeux %></td>
+        <td><%= locataire.prenomDeux %></td>
+        <td><%= locataire.nomSociete %></td>
+        <td><%= locataire.nRcs %></td>
+        <td><%= locataire.adresseSiege %></td>
+        <td><%= locataire.codePostalSiege %></td>
+        <td><%= locataire.villeSiege %></td>
+        <td><%= locataire.representant %></td>
+        <td><%= locataire.bailleur %></td>
+        <td><%= link_to 'Show', locataire %></td>
+        <td><%= link_to 'Edit', edit_locataire_path(locataire) %></td>
+        <td><%= link_to 'Destroy', locataire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Locataire', new_locataire_path %>
