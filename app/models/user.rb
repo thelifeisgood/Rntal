@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bailleurs, dependent: :destroy
+  has_many :locataires, dependent: :destroy
 end

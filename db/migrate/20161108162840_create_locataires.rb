@@ -12,7 +12,7 @@ class CreateLocataires < ActiveRecord::Migration[5.0]
       t.integer :codePostalSiege
       t.string :villeSiege
       t.boolean :representant
-      t.references :bailleur, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

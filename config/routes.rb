@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
-  resources :bails
-  resources :representant_locataires
-  resources :garant_locataires
-  resources :locataires
-  resources :biens
-  resources :representant_bailleurs
-  resources :bailleurs
+
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :bailleurs do
+    resources :representant_bailleurs
+  end
+
+  resources :biens
+
+  resources :locataires do
+    resources :garant_locataires
+    resources :representant_locataires
+  end
+
+  resources :bails
+
 end

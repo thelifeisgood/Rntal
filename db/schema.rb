@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108155221) do
+ActiveRecord::Schema.define(version: 20161108163640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,74 @@ ActiveRecord::Schema.define(version: 20161108155221) do
     t.index ["user_id"], name: "index_bailleurs_on_user_id", using: :btree
   end
 
+  create_table "bails", force: :cascade do |t|
+    t.string   "typeDeBail"
+    t.string   "dureeDuBail"
+    t.date     "dateDebutBail"
+    t.date     "dateFinBail"
+    t.string   "destinationDesLocaux"
+    t.integer  "loyerHorsCharges"
+    t.integer  "provisionCharges"
+    t.string   "modaliteReglementChargesRecuperables"
+    t.string   "revisionAutomatiqueDuLoyer"
+    t.integer  "jourExigibiliteLoyer"
+    t.string   "modeReglement"
+    t.boolean  "enregistrementAutomatiqueLoyer"
+    t.boolean  "assuranceColocation"
+    t.integer  "locataire_id"
+    t.integer  "bien_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["bien_id"], name: "index_bails_on_bien_id", using: :btree
+    t.index ["locataire_id"], name: "index_bails_on_locataire_id", using: :btree
+  end
+
+  create_table "biens", force: :cascade do |t|
+    t.string   "typeDeBien"
+    t.string   "regimeJuridique"
+    t.string   "nombreDePieces"
+    t.string   "adresse"
+    t.integer  "codePostal"
+    t.string   "ville"
+    t.integer  "surfaceHabitable"
+    t.string   "descriptionDuBien"
+    t.integer  "bailleur_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["bailleur_id"], name: "index_biens_on_bailleur_id", using: :btree
+  end
+
+  create_table "garant_locataires", force: :cascade do |t|
+    t.string   "civilite"
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "adresse"
+    t.integer  "codePostal"
+    t.string   "ville"
+    t.integer  "locataire_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["locataire_id"], name: "index_garant_locataires_on_locataire_id", using: :btree
+  end
+
+  create_table "locataires", force: :cascade do |t|
+    t.string   "civilite"
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "nomDeux"
+    t.string   "prenomDeux"
+    t.string   "nomSociete"
+    t.integer  "nRcs"
+    t.string   "adresseSiege"
+    t.integer  "codePostalSiege"
+    t.string   "villeSiege"
+    t.boolean  "representant"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_locataires_on_user_id", using: :btree
+  end
+
   create_table "representant_bailleurs", force: :cascade do |t|
     t.string   "civilite"
     t.string   "nom"
@@ -48,6 +116,19 @@ ActiveRecord::Schema.define(version: 20161108155221) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["bailleur_id"], name: "index_representant_bailleurs_on_bailleur_id", using: :btree
+  end
+
+  create_table "representant_locataires", force: :cascade do |t|
+    t.string   "civilite"
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "adresse"
+    t.integer  "codePostal"
+    t.string   "ville"
+    t.integer  "locataire_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["locataire_id"], name: "index_representant_locataires_on_locataire_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +149,11 @@ ActiveRecord::Schema.define(version: 20161108155221) do
   end
 
   add_foreign_key "bailleurs", "users"
+  add_foreign_key "bails", "biens"
+  add_foreign_key "bails", "locataires"
+  add_foreign_key "biens", "bailleurs"
+  add_foreign_key "garant_locataires", "locataires"
+  add_foreign_key "locataires", "users"
   add_foreign_key "representant_bailleurs", "bailleurs"
+  add_foreign_key "representant_locataires", "locataires"
 end
