@@ -1,0 +1,79 @@
+<div class="split-panel--right-container">
+  <div class="search__form--right split-panel--right passengers">
+    <div class="split-panel__arrow" style="top: 308px;">
+    </div>
+    <div class="ct-panel">
+      <div class="ct-panel">
+        <h1 class="search__title">Bailleurs
+        </h1>
+
+        <div class="search__list passengers-list">
+          <div class="search-field" style="display: none;">
+            <input type="search" class="ember-text-field">
+            <div class="search-field__clear hidden" title="Effacer la recherche">
+              <button type="reset">Effacer la recherche
+              </button>
+            </div>
+          </div>
+
+          <div class="passengers-list__results ">
+            <ul class="passengers-list__inner-list">
+              <% @bailleurs.each do |bailleur| %>
+              <li class="search__list-item search__list-label search__passengers--passenger">
+                <label>
+
+                  <%= link_to "modifier", edit_bailleur_path(bailleur), class: "search__passengers--edit" %>
+
+
+                  <div class="search__passengers--passenger-label">
+                    <span class="search__passengers--passenger-name clicktale-pii">
+                      <%= link_to bailleur_path(bailleur) do %>
+                      <span class="passenger__first-name">
+                      <%= bailleur.prenom.capitalize %>
+                      </span>
+                      <span class="passenger__last-name">
+                      <%= bailleur.nom.capitalize %>
+                      </span>
+                      <% end %>
+                    </span>
+
+                    <!---->
+                    <ul class="cards__list">
+                      <!---->
+                    </ul>
+
+                    <div class="search__passengers--add-card guid-ember2875">
+                      <div class="search__passengers--add-card-icon">
+
+                      </div>
+                      <label class="search__passengers--add-card-label">ajouter un bien
+                      </label>
+                    </div>
+                  </div>
+
+                </label>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <!---->
+        </div>
+        <p class="search__passengers--footer">
+          <!---->
+
+        </p>
+
+
+        <button class="button--light search__list-button guid-ember4992">
+          <div class="search__passengers--edit-passenger-icon">
+
+          </div>
+          <%= link_to 'Ajouter', new_bailleur_path %>
+        </button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,17 +1,141 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+<div class="ct__application ct__signUp   fr">
+  <div class="application__dialogs">
+    <div class="dialog__container">
+      <div class="dialog__content">
+        <!---->
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+    <div class="auth__banner">
+      <div class="auth__banner-wrapper">
+        <div class="auth__banner-content">
+          <h1 class="auth__banner-title">Gagnez du temps</h1>
+          <h2 class="auth__banner-subtitle">Créez-vous un compte pour réserver en un clin d’oeil.</h2>
+        </div>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="auth__content">
+      <div class="auth__panels">
+        <div class="auth__panel auth__info">
+          <h3 class="auth__panel-title">Ce que vous y gagnez</h3>
+          <div>
+            <ul class="sign-up-info">
+              <li>
+                <p class="sign-up-info__title">Emportez vos billets</p>
+                <img class="sign-up-info__img" height="65px" width="36px" src="https://assets.trainline.eu/assets/images/sign-up/aztec-phone-258e4ac0dd216cc80424afb850d4022f.svg" alt="Smartphone">
+                <p class="sign-up-info__details">Réservez un billet depuis votre ordinateur et retrouvez-le sur votre mobile, à portée de main.</p>
+              </li>
+              <li>
+                <p class="sign-up-info__title">Gagnez du temps</p>
+                <img class="sign-up-info__img sign-up-info__img--small-left-shift" height="55px" width="41px" src="https://assets.trainline.eu/assets/images/sign-up/fav-fc00a9558b5a71b0012ffa6b53a510eb.svg" alt="Favoris">
+                <p class="sign-up-info__details">Vos passagers, vos cartes de réduction et vos trajets fréquents restent bien au chaud d’une réservation à l’autre.</p>
+              </li>
+              <li>
+                <p class="sign-up-info__title">Payez en un clic</p>
+                <img class="sign-up-info__img sign-up-info__img--left-shift" height="39px" width="50px" src="https://assets.trainline.eu/assets/images/sign-up/card-a41f1021567c568f6664e3febed036ff.svg" alt="Carte bancaire">
+                <p class="sign-up-info__details">Ajoutez votre carte de paiement à votre compte Trainline, pour passer à la caisse sans sortir votre portefeuille.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="auth__panel auth__form">
+          <div class="sign-up">
+            <p class="sign-up__title">
+              Créer un compte avec votre adresse email
+            </p>
+
+
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="sign-up">
+                <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Adresse email", class: "sign-up__email clicktale-pii ember-text-field textfield empty required" %>
+                <%= f.input :password, required: true, label: false, placeholder: "Mot de passe (6 caractères minimum)", class: "sign-up__password clicktale-pii ember-text-field textfield empty required" %>
+                <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirmation de mot de passe", class: "sign-up__password clicktale-pii ember-text-field textfield empty required" %>
+              </div>
+
+
+                <%= f.button :submit, "Créer un compte gratuitement", class: "sign-up__button" %>
+
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+
+            <div class="sign-up__separator">
+              <span>ou</span>
+            </div>
+
+            <button class="social-signin-facebook">Créer un compte avec Facebook
+            </button>
+
+            <button class="social-signin-google">Créer un compte avec Google+
+            </button>
+
+            <p class="sign-up__terms-of-use">
+              Ces informations sont nécessaires pour créer votre compte, envoyer des billets et autres informations utiles. Vous pouvez nous contacter au sujet des informations que nous possédons sur vous. En vous inscrivant, vous acceptez notre <a href="https://www.trainline.fr/privacy-policy">politique de confidentialité des données</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="auth__separator">
+
+      <div class="auth__section auth__ct-business">
+        <h2 class="auth__section-title auth__ct-business-title">Vous êtes une entreprise ?</h2>
+        <p class="auth__section-content">Nous avons créé Trainline for Business en prenant le meilleur de Trainline,
+          <br>et en rajoutant tout ce dont votre entreprise a besoin.</p>
+          <div class="auth_panels">
+            <div class="auth__panel auth__bullet auth__ct-business-panel">
+              <h4 class="auth__bullet-title">Trainline for Business</h4>
+              <p class="auth__bullet-content">Découvrez notre solution qui vous permettra d'acheter des billets de train pour toute votre entreprise.</p>
+            </div>
+            <div class="auth__panel auth__ct-business-button-wrapper">
+              <a class="button auth__ct-business-button" href="https://www.trainline.fr/business">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="auth__separator">
+
+        <div class="auth__section auth__ask-users">
+          <h2 class="auth__section-title auth__ask-users-title">Demandez conseil à nos utilisateurs</h2>
+          <p class="auth__section-content auth__ask-users-content">Tout le marketing du monde ne remplacera jamais ce que nos utilisateurs disent de nous.
+            <br>C’est encore eux qui parlent le mieux de notre service.</p>
+            <div>
+              <div class="open-home__tweets--container open-home__content">
+                <ul class="open-home__tweets">
+                  <li class="open-home__tweet">
+                    <div>
+                      <twitterwidget class="twitter-tweet twitter-tweet-rendered" id="twitter-widget-0" data-tweet-id="788423985323241477" style="position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 320px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;"></twitterwidget>
+                    </div>
+                  </li>
+                  <li class="open-home__tweet">
+                    <div>
+                      <twitterwidget class="twitter-tweet twitter-tweet-rendered" id="twitter-widget-1" data-tweet-id="787618414663729152" style="position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 320px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;"></twitterwidget>
+                    </div>
+                  </li>
+                  <li class="open-home__tweet">
+                    <div>
+                      <twitterwidget class="twitter-tweet twitter-tweet-rendered" id="twitter-widget-2" data-tweet-id="786951729317306368" style="position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 320px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;"></twitterwidget>
+                    </div>
+                  </li>
+                </ul>
+                <div style="height: 0px" class="collapsible collapsed slow">
+                  <!---->
+                </div> <a href="#" class="tweets__load-more">
+                Plus d’amour…
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+</div>
+
+    <!---->
+    <!---->
+
+

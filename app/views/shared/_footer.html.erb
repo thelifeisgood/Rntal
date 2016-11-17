@@ -1,0 +1,95 @@
+<!--Après connexion-->
+<% if user_signed_in? %>
+<!--Avant connexion-->
+<% else %>
+<div class="open-home__footer">
+  <div class="open-home__footer-container open-home__content">
+    <div class="open-home__footer--left">
+      <img class="open-home__footer-logo" width="171" height="36" alt="Trainline" src="https://assets.trainline.eu/assets/images/footer/trainline-logo-mint-020e56bc5053d3b39fb310c4394964af.svg">
+      <div class="open-home__footer-apps">
+        <a class="open-home__footer-app--ios" target="_blank" href="https://itunes.apple.com/fr/app/id599502670">
+          <img src="https://assets.trainline.eu/assets/images/open-home/fr/app_store-01ebab8f3a0c0c9b2acc30b3a40a7ebe.svg" alt="Télécharger l’application iPhone et iPad">
+        </a>
+        <a class="open-home__footer-app--android" target="_blank" href="https://play.google.com/store/apps/details?id=com.capitainetrain.android&amp;hl=fr">
+          <img src="https://assets.trainline.eu/assets/images/open-home/fr/google_play-594def1884701cd20312d930d78948b1.svg" alt="Télécharger l’application Android">
+        </a>
+      </div>
+    </div>
+
+    <div class="open-home__footer--right">
+      <ul class="open-home__footer--links">
+        <li class="open-home__footer--title">Trainline</li>
+        <li><a href="/signup" class="active">Créer un compte</a>
+        </li>
+        <li><a href="/signin">Se connecter</a>
+        </li>
+        <li><a href="https://www.trainline.fr/business">Pour les entreprises</a>
+        </li>
+      </ul>
+
+      <ul class="open-home__footer--links">
+        <li class="open-home__footer--title">À propos</li>
+        <li><a href="https://www.trainline.fr/about">Qui sommes-nous&nbsp;?</a>
+        </li>
+        <li><a href="https://www.trainline.fr/jobs">Offres d’emploi</a>
+        </li>
+        <li><a href="https://www.trainline.fr/press">Informations presse</a>
+        </li>
+        <li><a href="https://blog.trainline.fr">Blog</a>
+        </li>
+      </ul>
+
+      <ul class="open-home__footer--links">
+        <li class="open-home__footer--title">Ressources</li>
+        <li><a target="_blank" href="https://aide.trainline.fr">Site d’aide</a>
+        </li>
+        <li><a href="https://www.trainline.fr/promotions">Billets en promotions</a>
+        </li>
+        <li><a href="https://www.trainline.fr/privacy-policy">Données personnelles</a>
+        </li>
+        <li><a href="https://www.trainline.fr/cookies">Cookies</a>
+        </li>
+      </ul>
+
+      <ul class="open-home__footer--links">
+        <li class="open-home__footer--title">Nous contacter</li>
+        <li><a href="https://www.trainline.fr/contact">Contacter Trainline</a>
+        </li>
+        <li><a href="/support">Écrire au service client</a>
+        </li>
+        <li><a target="_blank" href="https://www.trainline.fr/affiliates">Demandes d’affiliation</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom-bar">
+    <div class="open-home__content">
+      <div class="footer__bottom-bar-container">
+        <ul class="footer__bottom-links">
+          <li><a href="https://www.trainline.fr/terms">CGV</a>
+          </li>
+          <li><a href="https://www.trainline.fr/legal-information">Informations légales</a>
+          </li>
+        </ul>
+        <ul class="footer__social-links">
+          <li>
+            <a class="footer__social-link footer__social-link--mail" href="https://www.trainline.fr/contact"></a>
+          </li>
+          <li>
+            <a class="footer__social-link footer__social-link--twitter" target="_blank" href="https://twitter.com/trainline_fr"></a>
+          </li>
+          <li>
+            <a class="footer__social-link footer__social-link--facebook" target="_blank" href="https://www.facebook.com/trainline.fr"></a>
+          </li>
+          <li>
+            <a class="footer__social-link footer__social-link--google-plus" target="_blank" href="https://plus.google.com/+trainline/posts"></a>
+          </li>
+        </ul>
+
+        <span class="footer__dont-be-late ">Ne ratez pas votre train, il est 07h21.</span>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

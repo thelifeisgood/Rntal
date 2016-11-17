@@ -4,7 +4,7 @@ class LocatairesController < ApplicationController
   # GET /locataires
   # GET /locataires.json
   def index
-    @locataires = Locataire.all
+    @locataires = current_user.locataire
   end
 
   # GET /locataires/1
@@ -14,7 +14,7 @@ class LocatairesController < ApplicationController
 
   # GET /locataires/new
   def new
-    @locataire = Locataire.new
+    @locataire = current_user.locataire.build
   end
 
   # GET /locataires/1/edit
@@ -24,7 +24,7 @@ class LocatairesController < ApplicationController
   # POST /locataires
   # POST /locataires.json
   def create
-    @locataire = Locataire.new(locataire_params)
+    @locataire = current_user.locataire.build(bailleur_params)
 
     respond_to do |format|
       if @locataire.save
@@ -65,10 +65,13 @@ class LocatairesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_locataire
       @locataire = Locataire.find(params[:id])
+      @bails = @locataire.bails
+      @representant_locataires = @locataire.representant_locataires
+      @garant_locataires = @locataire.garant_locataires
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locataire_params
-      params.require(:locataire).permit(:civilite, :nom, :prenom, :nomDeux, :prenomDeux, :nomSociete, :nRcs, :adresseSiege, :codePostalSiege, :villeSiege, :representant, :bailleur_id)
+      params.require(:locataire).permit(:civilite, :nom, :prenom, :nomDeux, :prenomDeux, :nomSociete, :nRcs, :adresseSiege, :codePostalSiege, :villeSiege, :representant, :user_id)
     end
 end

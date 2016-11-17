@@ -1,5 +1,19 @@
-<%= simple_form_for(@bailleur) do |f| %>
-  <%= f.error_notification %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+
+<%= simple_form_for(@bailleur, remote: remote, html: {role: :form, 'data-model' => 'bailleur'}) do |f| %>
+    <% if @bailleur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bailleur.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @bailleur.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 
   <div class="form-inputs">
     <%= f.input :civilite, as: :select, collection: Bailleur::CIVILITES, include_blank:  "Select a category" %>
@@ -17,10 +31,12 @@
     <%= f.input :codePostal %>
     <%= f.input :ville %>
     <%= f.input :representant %>
-    <%= f.association :user %>
+    <%= f.hidden_field :user_id %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+
 <% end %>

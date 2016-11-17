@@ -1,76 +1,142 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
-  <% end %>
+<!--Après connexion-->
+<% if user_signed_in? %>
+<div class="application__header-container">
+  <div class="application__header">
+  <div>
+      <div>
+        <div class="header__logo header__logo--signed-in">
+          <!---->
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
-
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
         </div>
-      <% end %>
+      </div>
+      <ul class="header__tabs">
+        <li class="header__tab header__search ">
+          <a href="/search" class="header__link active">
+            <span>
+              <div class="header__tab-icon header__tab-icon--search">
+              </div>
+              Recherche
+            </span>
+          </a>
+        </li>
+        <li class="header__tab header__cart ">
+          <a href="/cart" class="header__link">
+            <span>
+              <div class="header__tab-icon header__tab-icon--cart-empty">
+              </div>
+              Historique
+            </span>
+            <!---->
+          </a>
+        </li>
+        <li class="header__tab header__tickets">
+          <a href="/tickets" class="header__link">
+            <span>
+              <div class="header__tab-icon header__tab-icon--tickets">
+              </div>
+              Syntèse
+            </span>
+          </a>
+        </li>
+      </ul>
 
-      <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
+      <ul class="header__account">
+        <li class="header__account-item header__help">
+          <div class="help__menu">
+            <a target="_blank" class="header__link " href="https://aide.trainline.fr">
+              <span>
+                Aide
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <!---->
+        <li class="header__account-item header__user">
+          <div id="user-menu" class="user-menu"><a class="header__link ">
+            <span class="user-menu__label">
+              <div id="avatar" class="user-menu__avatar clicktale-pii">
+
+              </div>
+              <label>
+                <span class="clicktale-pii">Anthony
+                </span>
+              </label>
+            </span>
+          </a>
+          <ul class="user-menu__list">
+            <li class="user-menu__item">
+              <a href="/preferences">
+                <i class="user-menu__icon user-menu__icon--preferences">
+
+                </i>
+                Préférences
+              </a>
             </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
+            <li class="user-menu__item ">
+              <a href="/discount-cards">
+                <i class="user-menu__icon user-menu__icon--card">
+
+                </i>
+                Achat de cartes SNCF
+              </a>
             </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
+            <li class="user-menu__item">
+              <a>
+                <i class="user-menu__icon user-menu__icon--add-code"></i>
+                Code d’invitation
+              </a>
+            </li>
+            <li class="user-menu__item">
+              <a>
+                <i class="user-menu__icon user-menu__icon--signout"></i>
+                Déconnexion
+              </a>
             </li>
           </ul>
         </div>
-      </div>
-
-    <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-    <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      </li>
+    </ul>
   </div>
+</div>
+</div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+<!--Avant connexion-->
+<% else %>
+<div class="application__header-container">
+  <div class="application__header">
+    <div class="visitor-header">
+      <div class="active">
+        <div class="header__logo header__logo--large">
+          <!---->
+        </div>
+      </div>
+      <!---->
+      <ul class="header__account">
+        <li class="header__account-item header__signup">
+          <a href="/signup" class="header__signin-button">Créer un compte
+          </a>
+        </li>
+
+        <li class="header__account-item header__signin">
+          <button class="header__signin-button">
+            Se connecter
+          </button>
+        </li>
+
+        <!---->
+        <li class="header__account-item header__help">
+          <div class="help__menu">
+            <a target="_blank" class="header__link " href="https://aide.rntal.fr">
+              <span>
+                Aide
+              </span>
+            </a>
+          </div>
+        </li>
+
       </ul>
     </div>
   </div>
 </div>
-
+<% end %>

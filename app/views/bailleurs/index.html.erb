@@ -1,57 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bailleurs</h1>
+<h1>Listing bailleurs</h1>
 
-<table>
+<table class='table' id='bailleurs_table'>
   <thead>
     <tr>
-      <th>Civilite</th>
-      <th>Nom</th>
       <th>Prenom</th>
-      <th>Nommme</th>
-      <th>Prenommme</th>
-      <th>Nomdeux</th>
-      <th>Prenomdeux</th>
-      <th>Nomsociete</th>
-      <th>Nrcs</th>
-      <th>Tva</th>
-      <th>Nomindivision</th>
-      <th>Adresse</th>
-      <th>Codepostal</th>
-      <th>Ville</th>
-      <th>Representant</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>nom</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @bailleurs.each do |bailleur| %>
-      <tr>
-        <td><%= bailleur.civilite %></td>
-        <td><%= bailleur.nom %></td>
-        <td><%= bailleur.prenom %></td>
-        <td><%= bailleur.nomMme %></td>
-        <td><%= bailleur.prenomMme %></td>
-        <td><%= bailleur.nomDeux %></td>
-        <td><%= bailleur.prenomDeux %></td>
-        <td><%= bailleur.nomSociete %></td>
-        <td><%= bailleur.nRcs %></td>
-        <td><%= bailleur.tva %></td>
-        <td><%= bailleur.nomIndivision %></td>
-        <td><%= bailleur.adresse %></td>
-        <td><%= bailleur.codePostal %></td>
-        <td><%= bailleur.ville %></td>
-        <td><%= bailleur.representant %></td>
-        <td><%= bailleur.user %></td>
-        <td><%= link_to 'Show', bailleur %></td>
-        <td><%= link_to 'Edit', edit_bailleur_path(bailleur) %></td>
-        <td><%= link_to 'Destroy', bailleur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%# Render table row partial for each person object %>
+      <%= render partial: 'table_row', locals: {bailleur: bailleur} %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Bailleur', new_bailleur_path %>
+<%# Added Bootstrap data modal attribute %>
+<%= link_to 'New Bailleur', '#new_bailleur_modal', 'data-toggle' => 'modal' %>
+
+<%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
+<div class="modal fade" id="new_bailleur_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create new bailleur</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

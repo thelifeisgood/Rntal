@@ -1,10 +1,11 @@
-class BailleursController < ApplicationController
+ class BailleursController < ApplicationController
   before_action :set_bailleur, only: [:show, :edit, :update, :destroy]
 
   # GET /bailleurs
   # GET /bailleurs.json
   def index
-    @bailleurs = Bailleur.all
+    @bailleurs = current_user.bailleurs
+    @bailleur = Bailleur.new
   end
 
   # GET /bailleurs/1
@@ -14,7 +15,7 @@ class BailleursController < ApplicationController
 
   # GET /bailleurs/new
   def new
-    @bailleur = Bailleur.new
+    @bailleur = current_user.bailleurs.build
   end
 
   # GET /bailleurs/1/edit
@@ -24,15 +25,17 @@ class BailleursController < ApplicationController
   # POST /bailleurs
   # POST /bailleurs.json
   def create
-    @bailleur = Bailleur.new(bailleur_params)
+    @bailleur = current_user.bailleurs.build(bailleur_params)
 
     respond_to do |format|
       if @bailleur.save
         format.html { redirect_to @bailleur, notice: 'Bailleur was successfully created.' }
         format.json { render :show, status: :created, location: @bailleur }
+        format.js   { render action: 'show', status: :created, location: @bailleur }
       else
         format.html { render :new }
         format.json { render json: @bailleur.errors, status: :unprocessable_entity }
+        format.js   { render json: @bailleur.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,6 +68,8 @@ class BailleursController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bailleur
       @bailleur = Bailleur.find(params[:id])
+      @biens = @bailleur.biens
+      @representant_bailleurs = @bailleur.representant_bailleurs
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

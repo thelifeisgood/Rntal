@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="ct__application ct__search   fr">
+<div class="application__dialogs">
+    <div class="dialog__container">
+      <div class="dialog__content">
+        <!---->
+      </div>
+    </div>
+  </div>
+
+<div class="application">
+
+<div class="application__body-container">
+  <div class="application__body">
+    <div class="title"><%= "#{@bailleur.nom.capitalize} #{@bailleur.prenom.capitalize}" %></div>
+    <!---->
+    <!---->
+    <div class="search__form--collapsible collapsible slow">
+      <div class="collapsible__measuring-div">
+        <div data-help-contexts="tab_search" class="search__form">
+
+          <%= render 'left-container' %>
+
+          <%= render 'right-container' %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+
 
 <p>
   <strong>Civilite:</strong>

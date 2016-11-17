@@ -1,5 +1,16 @@
-<h1>New Bien</h1>
+<div class="application__body-container">
+  <div class="application__body">
+    <div class="discount-cards__form">
+      <div class="discount-cards__form--main">
+        <div class="discount-cards__title">
+          Ajouter un bailleur
+        </div>
 
-<%= render 'form', bien: @bien %>
+        <%= render 'form', bien: @bien %>
 
-<%= link_to 'Back', biens_path %>
+        <%= link_to 'Back', biens_path(@bailleur) %>
+
+      </div>
+    </div>
+  </div>
+</div>

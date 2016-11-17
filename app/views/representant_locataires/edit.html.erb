@@ -1,6 +1,16 @@
-<h1>Editing Representant Locataire</h1>
+<div class="application__body-container">
+  <div class="application__body">
+    <div class="discount-cards__form" data-help-contexts="tab_discount_cards">
+      <div class="discount-cards__form--main">
+        <div class="discount-cards__title">
+          Editer representant loc
+        </div>
 
-<%= render 'form', representant_locataire: @representant_locataire %>
+        <%= render 'form', representant_locataire: @representant_locataire %>
 
-<%= link_to 'Show', @representant_locataire %> |
-<%= link_to 'Back', representant_locataires_path %>
+        <%= link_to 'Show', @representant_locataire %> |
+        <%= link_to 'Back', representant_locataires_path %>
+      </div>
+    </div>
+  </div>
+</div>

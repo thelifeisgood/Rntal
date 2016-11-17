@@ -4,7 +4,7 @@ class RepresentantLocatairesController < ApplicationController
   # GET /representant_locataires
   # GET /representant_locataires.json
   def index
-    @representant_locataires = RepresentantLocataire.all
+    @representant_locataires = RepresentantLocataire.locataire.id
   end
 
   # GET /representant_locataires/1
@@ -14,7 +14,7 @@ class RepresentantLocatairesController < ApplicationController
 
   # GET /representant_locataires/new
   def new
-    @representant_locataire = RepresentantLocataire.new
+    @representant_locataire = RepresentantLocataire.locataire.id.build
   end
 
   # GET /representant_locataires/1/edit
@@ -24,7 +24,7 @@ class RepresentantLocatairesController < ApplicationController
   # POST /representant_locataires
   # POST /representant_locataires.json
   def create
-    @representant_locataire = RepresentantLocataire.new(representant_locataire_params)
+    @representant_locataire = RepresentantLocataire.locataire.id.build(representant_locataire_params)
 
     respond_to do |format|
       if @representant_locataire.save

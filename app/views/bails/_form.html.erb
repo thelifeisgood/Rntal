@@ -15,8 +15,8 @@
     <%= f.input :modeReglement %>
     <%= f.input :enregistrementAutomatiqueLoyer %>
     <%= f.input :assuranceColocation %>
-    <%= f.association :locataire %>
-    <%= f.association :bien %>
+    <%= f.hidden_field :locataire_id %>
+    <%= f.hidden_field :bien_id %>
   </div>
 
   <div class="form-actions">

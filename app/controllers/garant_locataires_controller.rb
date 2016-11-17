@@ -4,7 +4,7 @@ class GarantLocatairesController < ApplicationController
   # GET /garant_locataires
   # GET /garant_locataires.json
   def index
-    @garant_locataires = GarantLocataire.all
+    @garant_locataires = GarantLocataire.locataire.id
   end
 
   # GET /garant_locataires/1
@@ -14,7 +14,7 @@ class GarantLocatairesController < ApplicationController
 
   # GET /garant_locataires/new
   def new
-    @garant_locataire = GarantLocataire.new
+    @garant_locataire = GarantLocataire.locataire.id.build
   end
 
   # GET /garant_locataires/1/edit
@@ -24,7 +24,7 @@ class GarantLocatairesController < ApplicationController
   # POST /garant_locataires
   # POST /garant_locataires.json
   def create
-    @garant_locataire = GarantLocataire.new(garant_locataire_params)
+    @garant_locataire = GarantLocataire.locataire.id.build(garant_locataire_params)
 
     respond_to do |format|
       if @garant_locataire.save

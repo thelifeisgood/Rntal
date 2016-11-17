@@ -4,7 +4,7 @@ class RepresentantBailleursController < ApplicationController
   # GET /representant_bailleurs
   # GET /representant_bailleurs.json
   def index
-    @representant_bailleurs = RepresentantBailleur.all
+    @representant_bailleurs = RepresentantBailleur.bailleur.id
   end
 
   # GET /representant_bailleurs/1
@@ -14,7 +14,7 @@ class RepresentantBailleursController < ApplicationController
 
   # GET /representant_bailleurs/new
   def new
-    @representant_bailleur = RepresentantBailleur.new
+    @representant_bailleur = RepresentantBailleur.bailleur.id.build
   end
 
   # GET /representant_bailleurs/1/edit
@@ -24,7 +24,7 @@ class RepresentantBailleursController < ApplicationController
   # POST /representant_bailleurs
   # POST /representant_bailleurs.json
   def create
-    @representant_bailleur = RepresentantBailleur.new(representant_bailleur_params)
+    @representant_bailleur = RepresentantBailleur.bailleur.id.build(representant_bailleur_params)
 
     respond_to do |format|
       if @representant_bailleur.save

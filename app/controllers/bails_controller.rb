@@ -4,7 +4,7 @@ class BailsController < ApplicationController
   # GET /bails
   # GET /bails.json
   def index
-    @bails = Bail.all
+    @bails = Bail.bien.id
   end
 
   # GET /bails/1
@@ -14,7 +14,7 @@ class BailsController < ApplicationController
 
   # GET /bails/new
   def new
-    @bail = Bail.new
+    @bail = Bail.bien.id.build
   end
 
   # GET /bails/1/edit
@@ -24,7 +24,7 @@ class BailsController < ApplicationController
   # POST /bails
   # POST /bails.json
   def create
-    @bail = Bail.new(bail_params)
+    @bail = Bail.bien.id.build(bail_params)
 
     respond_to do |format|
       if @bail.save

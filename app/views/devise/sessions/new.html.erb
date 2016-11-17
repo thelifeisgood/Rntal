@@ -1,15 +1,81 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="ct__application ct__signIn   fr">
+  <div class="application__dialogs">
+    <div class="dialog__container">
+      <div class="dialog__content">
+        <!---->
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="auth__banner">
+    <div class="auth__banner-wrapper">
+      <div class="auth__banner-content">
+        <h1 class="auth__banner-title">Se connecter</h1>
+      </div>
+    </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="auth__content">
+    <div class="auth__panels">
+      <div class="auth__form">
+        <div>
+          <div class="signin__wrapper ">
+
+
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="signin__form">
+                <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "Adresse email" %>
+                <%= f.input :password, required: false, label: false, placeholder: "Mot de passe" %>
+                <div class="signin__forgot">
+                  <span>
+                    <a href="/password">          Mot de passe oublié&nbsp;?
+                    </a>
+                  </span>
+                </div>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+
+              <div class="signin__buttons ">
+
+                <!---->
+                <div class="signin__buttons-block">
+                    <%= f.button :submit, "Se connecter", class: "signin__button" %>
+                </div>
+              </div>
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+
+            <div class="signin__hr">
+              <span class="signin__or">
+                ou
+              </span>
+            </div>
+
+            <div class="signin__social">
+              <div class="signin__buttons ">
+
+                <div class="signin__buttons-block">
+                  <button class="social-signin-facebook">Se connecter avec Facebook
+                  </button>
+                </div>
+
+                <div class="signin__buttons-block">
+                  <button class="social-signin-google">Se connecter avec Google+
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---->
+<!---->
+
+
