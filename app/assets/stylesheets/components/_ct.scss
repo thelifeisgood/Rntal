@@ -456,7 +456,7 @@
 }
 a {
     color: #059e87;
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer
 }
 a:hover {
@@ -9927,7 +9927,6 @@ body:not(.modal-open) .application__dialogs {
     display: table-cell;
     margin: 0;
     padding: 0;
-    vertical-align: middle
 }
 .header__tab--disabled {
     opacity: .25;

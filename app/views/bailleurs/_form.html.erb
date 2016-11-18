@@ -15,28 +15,58 @@
   <% end %>
 
 
-  <div class="form-inputs">
-    <%= f.input :civilite, as: :select, collection: Bailleur::CIVILITES, include_blank:  "Select a category" %>
-    <%= f.input :nom %>
-    <%= f.input :prenom %>
-    <%= f.input :nomMme %>
-    <%= f.input :prenomMme %>
-    <%= f.input :nomDeux %>
-    <%= f.input :prenomDeux %>
-    <%= f.input :nomSociete %>
-    <%= f.input :nRcs %>
-    <%= f.input :tva %>
-    <%= f.input :nomIndivision %>
-    <%= f.input :adresse %>
-    <%= f.input :codePostal %>
-    <%= f.input :ville %>
-    <%= f.input :representant %>
-    <%= f.hidden_field :user_id %>
-  </div>
+                <div class="ember-overlay dialog ember-dialog visible">
+                    <header>
+                      <div class="dialog__icon dialog__icon--add-passenger">
+                      </div>
+                      Ajouter un bailleur
+                    </header>
+                    <hr>
+                    <form>
+                      <%= f.input :civilite, as: :select, collection: Bailleur::CIVILITES, include_blank: "Civilité", id: "passenger__gender", class: "first select required empty", label: false, wrapper: false %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+                      <%= f.input :prenom, autocapitalize: "true", placeholder: "Prénom", autocomplete: "on", type: "text", input_html: { id: "passenger__first-name", class: "clicktale-pii ember-text-field textfield empty required"}, label: false, wrapper: false %>
+
+                      <%= f.input :nom, autocapitalize: "true", placeholder: "Nom", autocomplete: "on", type: "text", input_html: {id:"passenger__last-name", class: "clicktale-pii ember-text-field textfield empty required"}, label: false, wrapper: false %>
+                      </br>
+                      <div class="passenger__notice passenger__notice--right ">
+                      </div>
+
+
+                      <input id="passenger__email" placeholder="Email (optionnel)" autocomplete="on" type="email" class="clicktale-pii ember-text-field textfield empty">
+                      <input id="passenger__phone" placeholder="Téléphone (optionnel)" autocomplete="on" type="tel" class="clicktale-pii ember-text-field textfield empty" tabindex="10">
+                      <div class="passenger__cards--label">
+                        Biens
+                      </div>
+                      <ul class="passenger__cards cards__list">
+                        <!---->
+                        <li class="card passenger__cards--slot">
+                          ajouter une carte
+                        </li>
+                      </ul>
+                      <!---->
+                      <footer>
+                        <button type="button" tabindex="13" class="passenger__toggle-kind passenger__toggle-kind--animal" title="Ajouter un animal">
+                          Ajouter un animal
+                        </button>
+                        <!---->
+                        <span class="loading-spinner left" style="display: none;"><!---->
+                        </span>
+                        <%= f.hidden_field :user_id %>
+
+
+                        <%= link_to 'Annuler', bailleurs_path, type: "button", class: "button button--secondary" %>
+
+                        <%= f.button :submit, "OK", class: "button" %>
+
+                      </footer>
+                    </form>
+                  <!---->
+                  <!---->
+                </div>
+
+
+
 
 
 <% end %>

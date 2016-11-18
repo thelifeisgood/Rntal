@@ -1,17 +1,22 @@
-<div class="application__body-container">
-  <div class="application__body">
-    <div class="discount-cards__form">
-      <div class="discount-cards__form--main">
-        <div class="discount-cards__title">
-          Ajouter un bailleur
-        </div>
+<body style="width: auto; margin-left: 0px; overflow-x: auto;" cz-shortcut-listen="true" class="with-overlay with-overlay--dialog modal-open">
+  <div id="app" class="ember-application">
+      <div class="ct__application ct__search   fr">
+        <div class="application__dialogs">
+          <div class="dialog__container">
+            <div class="dialog__content">
 
         <%= render 'form', bailleur: @bailleur %>
 
-        <%= link_to 'Back', bailleurs_path %>
 
-      </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay overlay--dialog">
+          </div>
+          <!---->
+        </div>
     </div>
+  </body>
 
-  </div>
-</div>
+
+
