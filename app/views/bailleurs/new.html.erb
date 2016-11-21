@@ -4,19 +4,23 @@
         <div class="application__dialogs">
           <div class="dialog__container">
             <div class="dialog__content">
-
-        <%= render 'form', bailleur: @bailleur %>
-
-
+              <div class="ember-overlay dialog ember-dialog visible">
+                <header>
+                  <div class="dialog__icon dialog__icon--add-passenger">
+                  </div>
+                  Ajouter un bailleur
+                </header>
+                <hr>
+                <%= render 'form', bailleur: @bailleur %>
               </div>
             </div>
           </div>
-          <div class="overlay overlay--dialog">
-          </div>
-          <!---->
         </div>
+       <div class="overlay overlay--dialog">
+       </div>
     </div>
-  </body>
+  </div>
+</body>
 
 
 

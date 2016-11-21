@@ -1,19 +1,23 @@
-<div class="application__body-container">
-  <div class="application__body">
-    <div class="discount-cards__form">
-      <div class="discount-cards__form--main">
-        <div class="discount-cards__title">
-          Ajouter un bailleur
+<body style="width: auto; margin-left: 0px; overflow-x: auto;" cz-shortcut-listen="true" class="with-overlay with-overlay--dialog modal-open">
+  <div id="app" class="ember-application">
+      <div class="ct__application ct__search   fr">
+        <div class="application__dialogs">
+          <div class="dialog__container">
+            <div class="dialog__content">
+              <div class="ember-overlay dialog ember-dialog visible">
+                <header>
+                  <div class="dialog__icon dialog__icon--add-passenger">
+                  </div>
+                  Ajouter un representant locataire
+                </header>
+                <hr>
+                <%= render 'form', representant_locataire: @representant_locataire %>
+              </div>
+            </div>
+          </div>
         </div>
-
-
-        <%= render 'form', representant_locataire: @representant_locataire %>
-
-        <%= link_to 'Back', representant_locataires_path %>
-
-      </div>
+       <div class="overlay overlay--dialog">
+       </div>
     </div>
   </div>
-</div>
-
-
+</body>

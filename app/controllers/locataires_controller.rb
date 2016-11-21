@@ -4,7 +4,7 @@ class LocatairesController < ApplicationController
   # GET /locataires
   # GET /locataires.json
   def index
-    @locataires = current_user.locataire
+    @locataires = current_user.locataires
   end
 
   # GET /locataires/1
@@ -14,7 +14,7 @@ class LocatairesController < ApplicationController
 
   # GET /locataires/new
   def new
-    @locataire = current_user.locataire.build
+    @locataire = current_user.locataires.build
   end
 
   # GET /locataires/1/edit
@@ -24,7 +24,7 @@ class LocatairesController < ApplicationController
   # POST /locataires
   # POST /locataires.json
   def create
-    @locataire = current_user.locataire.build(bailleur_params)
+    @locataire = current_user.locataires.build(bailleur_params)
 
     respond_to do |format|
       if @locataire.save
